@@ -1,0 +1,5 @@
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/app_icon/todo-logo.jpg"
+  image_path_ios: "assets/app_icon/todo-logo.jpg"
