@@ -1,11 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/app/pages/add_task_page.dart';
 import 'package:todo_app/app/widgets/header_widget.dart';
 import 'package:todo_app/app/widgets/home_app_bar_widget.dart';
 import 'package:todo_app/components/filter_list_component.dart';
 import 'package:todo_app/components/task_list_component.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  void navigateToForm() {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) {
+          return const AddTaskPage();
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +36,21 @@ class HomePage extends StatelessWidget {
         ),
         onTitleTap: (date) {},
       ),
-      body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
         child: Column(
           children: [
-            HeaderWidget(),
-            SizedBox(height: 20),
-            FilterListComponent(),
-            SizedBox(height: 20),
-            Expanded(child: TaskListComponent()),
+            HeaderWidget(
+              title: 'Tarefas de Hoje',
+              date: 'Hoje',
+              onAddTap: navigateToForm,
+            ),
+            const SizedBox(height: 20),
+            const FilterListComponent(),
+            const SizedBox(height: 20),
+            const Expanded(
+              child: TaskListComponent(),
+            ),
           ],
         ),
       ),

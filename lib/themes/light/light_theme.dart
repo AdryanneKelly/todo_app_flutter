@@ -5,10 +5,13 @@ import 'package:todo_app/themes/light/light_colors.dart';
 class LightTheme {
   static final theme = ThemeData(
     appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
       titleTextStyle: TextStyle(
         color: Colors.black87,
         fontSize: 20,
       ),
+      iconTheme: IconThemeData(color: Colors.black),
     ),
     dividerColor: LightColors.gray,
     textTheme: const TextTheme(
